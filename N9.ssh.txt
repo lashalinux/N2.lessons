@@ -1,0 +1,44 @@
+GitHub-სთან SSH-ით კავშირისთვის Linux-ზე, უნდა შექმნა SSH გასაღები და დაამატო ის GitHub-ის პროფილზე. აი ნაბიჯები დეტალურად:
+
+1. შეამოწმე უკვე გაქვს თუ არა SSH გასაღები
+bash
+კოდის კოპირება
+ls -al ~/.ssh
+თუ უკვე არსებობს id_rsa და id_rsa.pub, შეგიძლია გამოიყენო ისინი. თუ არა:
+
+2. SSH გასაღების შექმნა
+bash
+კოდის კოპირება
+ssh-keygen -t rsa -b 4096 -C "შენი-email@მაგალითი.com"
+დააჭირე Enter-ს ყველა კითხვაზე, რათა შექმნას გასაღები ფაილი ~/.ssh/id_rsa და ~/.ssh/id_rsa.pub.
+
+3. გახსნა და დაკოპირება public გასაღების
+bash
+კოდის კოპირება
+cat ~/.ssh/id_rsa.pub
+დაკოპირე რაც გამოჩნდება.
+
+4. SSH გასაღების დამატება GitHub-ში
+შედი GitHub-ზე
+
+მარჯვენა ზემოთ პროფილი → Settings
+
+მარცხენა მენიუში: SSH and GPG keys
+
+დააწკაპე New SSH key
+
+ჩასვი დაკოპირებული გასაღები ველში და დაარქვი სახელი
+
+5. შეამოწმე კავშირი GitHub-თან
+bash
+კოდის კოპირება
+ssh -T git@github.com
+თუ ყველაფერი სწორადაა, დაინახავ მსგავს შეტყობინებას:
+
+vbnet
+კოდის კოპირება
+Hi username! You've successfully authenticated, but GitHub does not provide shell access.
+6. Git რეპოზიტორიდან კლონვა SSH-ით
+bash
+კოდის კოპირება
+git clone git@github.com:username/repository.git

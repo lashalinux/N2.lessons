@@ -1,0 +1,76 @@
+1. GitHub-ზე მომხმარებლის და რეპოზიტორიის შექმნა
+მომხმარებლის შექმნა:
+შედი: https://github.com
+
+დააჭირე “Sign Up” → შექმენი პროფილი (თუ უკვე გაქვს, გამოტოვე)
+
+რეპოზიტორიის შექმნა:
+შედი GitHub-ში
+
+მარჯვენა ზედა კუთხეში დააჭირე + → New repository
+
+შეიყვანე:
+
+Repository name: მაგ. my-first-project
+
+Description (არაა სავალდებულო)
+
+Public ან Private
+
+არ მონიშნო “Initialize with README” — თუ ლოკალურად უკვე გაქვს პროექტი
+
+დააჭირე Create repository
+
+2. პროექტის ატვირთვა GitHub-ზე ლოკალური Git-დან
+დავუშვათ, უკვე გაქვს ლოკალური პროექტი:
+
+bash
+კოდის კოპირება
+cd ~/Documents/my-first-project
+git init
+git add .
+git commit -m "Initial commit"
+შეაერთე GitHub რეპო origin-ად:
+bash
+კოდის კოპირება
+git remote add origin https://github.com/USERNAME/REPO_NAME.git
+მაგ:
+
+bash
+კოდის კოპირება
+git remote add origin https://github.com/lashalinux/my-first-project.git
+შეამოწმე თუ სწორად დაემატა:
+bash
+კოდის კოპირება
+git remote -v
+→ უნდა ნახო:
+
+perl
+კოდის კოპირება
+origin  https://github.com/lashalinux/my-first-project.git (fetch)
+origin  https://github.com/lashalinux/my-first-project.git (push)
+აპლოადი GitHub-ზე:
+bash
+კოდის კოპირება
+git push -u origin master
+ან (თუ მთავარი branch არის main):
+
+bash
+კოდის კოპირება
+git push -u origin main
+-u ნიშნავს, რომ ლოკალური branch დაუკავშიროს GitHub-ის branch-ს.
+
+3. სხვა remote ბრძანებები:
+ბრძანება	შინაარსი
+git remote -v	აჩვენებს რომელი რეპოებია დაკავშირებული
+git remote add origin <url>	GitHub რეპოს მიბმა
+git remote remove origin	წაშლის არსებულ origin-ს
+git remote set-url origin <url>	შეცვლის არსებულ origin-ის URL-ს
+საბოლოო მოკლე სცენარი:
+bash
+კოდის კოპირება
+git init
+git add .
+git commit -m "First commit"
+git remote add origin https://github.com/lashalinux/my-first-project.git
+git push -u origin main

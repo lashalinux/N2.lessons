@@ -1,0 +1,56 @@
+რა არის git checkout?
+git checkout-ით შეგიძლია:
+
+გადახვიდე commit-ის წინა ვერსიაზე (ისტორიის „დახევით“)
+
+გადახვიდე სხვა branch-ზე
+
+აღადგინო კონკრეტული ფაილი commit-იდან
+
+1. ისტორიის წინა commit-ზე დაბრუნება (read-only მდგომარეობით):
+bash
+კოდის კოპირება
+git checkout <commit_hash>
+მაგალითად:
+
+bash
+კოდის კოპირება
+git checkout a1b2c3d
+→ ახლა შენ იმ commit-ზე ხარ, მაგრამ "detached HEAD" მდგომარეობაში, ანუ:
+
+შეგიძლია ნახო კოდი
+
+მაგრამ არ შეგიძლია ახალი commit-ების დამატება პირდაპირ იმ მდგომარეობიდან (თუ არ შექმნი ახალ branch-ს)
+
+2. როგორ დაბრუნდე უკან (მთავარ branch-ზე):
+bash
+კოდის კოპირება
+git checkout main
+ან თუ იყავი master-ზე:
+
+bash
+კოდის კოპირება
+git checkout master
+3. კონკრეტული ფაილის აღდგენა commit-იდან:
+bash
+კოდის კოპირება
+git checkout <commit_hash> -- file.txt
+მაგ:
+
+bash
+კოდის კოპირება
+git checkout 7g8h9i -- index.html
+→ ეს დააბრუნებს ფაილის იმ commit-შეინახულ ვერსიას.
+
+4. ახალი branch-ის შექმნა წარსული commit-იდან:
+თუ გინდა წარსული commit-იდან ახალი branch:
+
+bash
+კოდის კოპირება
+git checkout -b old-version a1b2c3d
+შეჯამება:
+ბრძანება	დანიშნულება
+git checkout <commit>	წარსულ commit-ზე გადასვლა
+git checkout main	დაბრუნება მთავარ branch-ზე
+git checkout <commit> -- file.txt	კონკრეტული ფაილის აღდგენა ძველი commit-იდან
+git checkout -b <branch> <commit>	ახალი branch წარსული commit-იდან
